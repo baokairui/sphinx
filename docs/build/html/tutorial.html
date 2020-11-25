@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+
+<html lang="**zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simplelayout Project &#8212; Simple Layout 1.1.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="simplelayout-project">
+<h1>Simplelayout Project<a class="headerlink" href="#simplelayout-project" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Simplelayout是一个包含命令行接口的简单布局生成器，生成给定分辨率、给定组件大小、给定组件位置的布局方案，以数据格式、图片形式存储，保存到指定目录。</p>
+</div></blockquote>
+<div class="section" id="id1">
+<h2>命令行接口<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><strong>命令行接口：</strong> 采用argparse完成</p>
+<p><strong>接口示例：</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python simplelayout.py --board_grid <span class="m">100</span> --unit_grid <span class="m">10</span> --unit_n <span class="m">3</span> --positions <span class="m">1</span> <span class="m">15</span> <span class="m">33</span> --outdir dir1/dir2 --file_name example
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>参数<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--board_grid</span></code>:  int，布局板分辨率，代表矩形区域的边长像素数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--unit_grid</span></code>: int，矩形组件分辨率；<strong>要求</strong> <code class="docutils literal notranslate"><span class="pre">board_grid</span></code> 能整除 <code class="docutils literal notranslate"><span class="pre">unit_grid</span></code>，若不满足退出程序</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--unit_n</span></code>: int，组件数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--positions</span></code>: 每个元素是 int，数量与 <code class="docutils literal notranslate"><span class="pre">unit_n</span></code> 一致；代表每个组件的位置编号，位置为从1开始的整数，上限为 <code class="docutils literal notranslate"><span class="pre">(board_grid/unit_grid)^2</span></code> ，若不满足要求退出程序</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">或者</span> <span class="pre">--outdir</span></code>: str，输出结果的目录，默认为当前目录下的 <code class="docutils literal notranslate"><span class="pre">example_dir</span></code> 目录；若目录不存在程序会自行创建，支持跨平台路径</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--file_name</span></code>: str，输出文件名（不包括文件类型后缀），默认为 <code class="docutils literal notranslate"><span class="pre">example</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>生成图片示例<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>​	根据上述参数，在命令行接口输入指令时会根据指令产生相应的图片，具体示例如下：</p>
+<p><img alt="https://i.loli.net/2020/11/25/fliP5ZeFCm2gpVn.png" src="https://i.loli.net/2020/11/25/fliP5ZeFCm2gpVn.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Simple Layout</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, baokairui.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/tutorial.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
